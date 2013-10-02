@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>MathQuill Toolbar Demo</title>
+
+<!--script type="text/javascript" src="mathquill/vendor/jquery.min.js"></script>
+<script type="text/javascript" src="mathquill/build/mathquill.js"></script-->
+<link rel="stylesheet" href="mathquill.css">
+<style type="text/css">
+.eebtn {
+	display: inline-block;
+	font-family: "Times New Roman", Times, serif;
+	font-size: 12px;
+	color: #000;
+	cursor: pointer;
+	width:30px;
+	height:30px;
+	border: 1px solid #000;
+	text-align: center;
+	background: #fff;
+	vertical-align: middle;
+	margin: 0 1px 1px 0;
+}
+
+.eehighlight {
+	background: #ccf;
+}
+
+
+#mqtools {
+	width:0px;
+	overflow: hidden;
+	position: fixed;
+	right: 0px;
+}
+.accordionButton {	
+	width: 100px;
+	padding: 4px 0px;
+	/*float: left;
+	_float: none;  /* Float works in all browsers but IE6 */
+	background: #003366;
+	color: #ffffff;
+	text-align: center;
+	border-bottom: 1px solid #FFFFFF;
+	cursor: pointer;
+	}
+	
+.accordionContent {	
+	width: 100px;
+	padding: 2px;
+	/*float: left;
+	_float: none; /* Float works in all browsers but IE6 */
+	background: #95B1CE;
+	font-size: 0;
+	}
+
+.over {
+	color: #9999ff;
+	}
+</style>
+<!--[if lte IE 7]>
+<style style="text/css">
+.mathquill-editable.empty { width: 0.5em; }
+.mathquill-rendered-math .numerator.empty, .mathquill-rendered-math .empty { padding: 0 0.25em;}
+.mathquill-rendered-math sup { line-height: .8em; }
+.mathquill-rendered-math .numerator {float: left; padding: 0;}
+.mathquill-rendered-math .denominator { clear: both;width: auto;float: left;}
+</style>
+<![endif]-->
+</head>
+<body>
+
+<h1>MathQuill Toolbar Demo</h1>
+
+<div id="mqtools">
+	<div class="accordionButton">Basic</div>
+	<div class="accordionContent">
+		<div class="eebtn" btntext="\\frac" btntype="0"><sup>x</sup>/<sub>y</sub></div>
+		<div class="eebtn" btntext="^" btntype="0">x<sup>y</sup></div>
+		<div class="eebtn" btntext="\\sqrt" btntype="0">&radic;</div>
+		<div class="eebtn" btntext="(" btntype="0">( )</div>
+		<div class="eebtn" btntext="\\pi" btntype="1">&pi;</div>
+		<div class="eebtn" btntext="\\infty" btntype="1">&infin;</div>
+		<div class="eebtn" btntext="DNE" btntype="1">DNE</div>
+	</div>
+	<div class="accordionButton">Intervals</div>
+	<div class="accordionContent">
+		<div class="eebtn" btntext="(" btntype="4">(  )</div>
+		<div class="eebtn" btntext="\\intervalopenleft" btntype="4">(  ]</div>
+		<div class="eebtn" btntext="\\intervalopenright" btntype="4">[ )</div> 
+		<div class="eebtn" btntext="[" btntype="4">[   ]</div>
+		<div class="eebtn" btntext="-\\infty" btntype="1">-&infin;</div>
+		<div class="eebtn" btntext="\\infty" btntype="1">&infin;</div>
+		<div class="eebtn" btntext="DNE" btntype="1">DNE</div>
+	</div>
+	<div class="accordionButton">Inequalities</div>
+	<div class="accordionContent">
+		<div class="eebtn" btntext="<" btntype="1">&lt;</div>
+		<div class="eebtn" btntext=">" btntype="1">&gt;</div>
+		<div class="eebtn" btntext="\\le" btntype="1">&le;</div>
+		<div class="eebtn" btntext="\\ge" btntype="1">&ge;</div>
+		<div class="eebtn" btntext="\\text{ or }" btntype="1">or</div>
+		<div class="eebtn" btntext="\\text{all real numbers}" btntype="1">All Reals</div>
+		<div class="eebtn" btntext="DNE" btntype="1">DNE</div>
+	</div>
+	<div class="accordionButton">Functions</div>
+	<div class="accordionContent">
+		<div class="eebtn" btntext="\\nthroot{3}" btntype="2"><sup>3</sup>&radic;</div>
+		<div class="eebtn" btntext="\\log" btntype="3">log</div>
+		<div class="eebtn" btntext="\\log_2" btntype="3">log<sub><sub>2</sub></sub></div>
+		<div class="eebtn" btntext="\\ln" btntype="3">ln</div>
+		<div class="eebtn" btntext="|" btntype="0">| x |</div>
+		<div class="eebtn" btntext="e^" btntype="2">e<sup>x</sup></div>
+	</div>
+	<div class="accordionButton">Trig</div>
+	<div class="accordionContent">
+		<div class="eebtn" btntext="\\sin" btntype="3">sin</div>
+		<div class="eebtn" btntext="\\cos" btntype="3">cos</div>
+		<div class="eebtn" btntext="\\tan" btntype="3">tan</div>
+		<div class="eebtn" btntext="\\sin^2" btntype="3">sin<sup>2</sup></div>
+		<div class="eebtn" btntext="\\arcsin" btntype="3">sin<sup>-1</sup></div>
+		<div class="eebtn" btntext="\\arccos" btntype="3">cos<sup>-1</sup></div>
+		<div class="eebtn" btntext="\\arctan" btntype="3">tan<sup>-1</sup></div>
+		<div class="eebtn" btntext="\\langle" btntype="0">&lt;  &gt;</div>
+	</div>
+</div>
+
+<p>This is a demo of a discoverable toolbar GUI for MathQuill commands and symbols. </p>
+
+<p>Input box 1: <span class="mathquill-editable" id="mq01" ></span> <input type="text" class="use-mathquill" id="qn01" />  </p>
+
+<p>Some text</p>
+
+<p>Input box 2: <span class="mathquill-editable" id="mq02" >x^2</span> <input type="text" class="use-mathquill" id="qn02" value="x^2" />  </p>
+
+
+<script type="text/javascript" src="jquery.min.js"></script>
+<script type="text/javascript" src="mathquill.php"></script>
+<script type="text/javascript" src="AMtoMQlite.js"></script>
+<script type="text/javascript">
+var ed;
+var cured;
+var curee = -1;
+function initmathquillregions() {
+	ed = $('.mathquill-editable');
+	$('.mathquill-rendered-math').mathquill('redraw');
+  	ed.each(function(i,el) {
+  		$(el).find('textarea').bind('focus',function() {
+  			cured = $(this).parents('.mathquill-editable');
+  			var curid = cured.get(0).id;
+  			if (curee != curid) {
+  				curee = curid;
+  				showee(cured);
+  			} else {
+  				unhideee(0);
+  			}
+  		});
+  		$(el).find('textarea').bind('blur', function() {hideee();});
+  		
+  		
+  		//this part is only for display - in real use, would just grab the contents onsubmit
+  		$(el).bind('keydown keypress DOMSubtreeModified', function () {
+  			setTimeout(function() {
+  				var output = MQtoAM($(el).mathquill('latex'));
+  				$('#qn'+el.id.substr(2)).val(output);
+  			});
+  		});
+  	});
+  	ed.first().find('textarea').focus();
+}
+$(function() {
+  
+  $(window).load(function() {
+  	initmathquillregions();
+  });
+  
+  $(document).ready(function() { 
+  	$('.eebtn').click(eeinsert);
+  }).bind('mouseover', function() {
+  	  $(this).addClass("eehighlight");
+  }).bind('mouseout', function() {
+  	  $(this).removeClass("eehighlight");
+  });
+}); 
+
+
+function eeinsert() {
+	var t = $(this).attr("btntext");
+        var type = $(this).attr("btntype");
+        t = t.replace('\\\\','\\');
+        if (type==0) {
+		cured.mathquill('cmd', t).find('textarea').focus();
+	} else if (type==1) {
+		cured.mathquill('write', t).find('textarea').focus();
+	} else if (type==2) {
+		cured.mathquill('writesimpfunc', t).find('textarea').focus();
+	} else if (type==3) {
+		cured.mathquill('writefunc', t).find('textarea').focus();
+	} else if (type==4) {
+		cured.mathquill('writeint', t).find('textarea').focus();
+	}
+}
+
+var eeclosetimer = null;
+
+
+function showee(eln) {
+	$('#mqtools').animate({width: 100});
+	eln.find('textarea').focus();
+}
+function unhideee(t) {
+	eecancelclosetimer();
+}
+function hideee(t) {
+	eeclosetimer = window.setTimeout(reallyhideee,250);
+}
+function eecancelclosetimer() {
+	if (eeclosetimer) {
+		window.clearTimeout(eeclosetimer);
+		eeclosetimer = null;
+	}
+}
+function reallyhideee() {
+	//document.getElementById('ee').style.display = "none";
+	$('#mqtools').animate({width: 0});
+	curee = -1;
+}
+
+//Accordian code from http://www.stemkoski.com/stupid-simple-jquery-accordion-menu/
+/***********************************************************************************************************************
+DOCUMENT: includes/javascript.js
+DEVELOPED BY: Ryan Stemkoski
+COMPANY: Zipline Interactive
+EMAIL: ryan@gozipline.com
+PHONE: 509-321-2849
+DATE: 3/26/2009
+UPDATED: 3/25/2010
+DESCRIPTION: This is the JavaScript required to create the accordion style menu.  Requires jQuery library
+NOTE: Because of a bug in jQuery with IE8 we had to add an IE stylesheet hack to get the system to work in all browsers. I hate hacks but had no choice :(.
+************************************************************************************************************************/
+$(document).ready(function() {
+	 
+	//ACCORDION BUTTON ACTION (ON CLICK DO THE FOLLOWING)
+	$('.accordionButton').click(function() {
+
+		//REMOVE THE ON CLASS FROM ALL BUTTONS
+		//$('.accordionButton').removeClass('on');
+		  
+		//NO MATTER WHAT WE CLOSE ALL OPEN SLIDES
+	 	$('.accordionContent').slideUp('normal');
+   
+		//IF THE NEXT SLIDE WASN'T OPEN THEN OPEN IT
+		if($(this).next().is(':hidden') == true) {
+			
+			//ADD THE ON CLASS TO THE BUTTON
+			//$(this).addClass('on');
+			  
+			//OPEN THE SLIDE
+			$(this).next().slideDown('normal');
+		 } 
+		 cured.find('textarea').focus(); 
+	 });
+	  
+	
+	/*** REMOVE IF MOUSEOVER IS NOT REQUIRED ***/
+	
+	//ADDS THE .OVER CLASS FROM THE STYLESHEET ON MOUSEOVER 
+	$('.accordionButton').mouseover(function() {
+		$(this).addClass('over');
+		
+	//ON MOUSEOUT REMOVE THE OVER CLASS
+	}).mouseout(function() {
+		$(this).removeClass('over');										
+	});
+	
+	/*** END REMOVE IF MOUSEOVER IS NOT REQUIRED ***/
+	
+	
+	/********************************************************************************************************************
+	CLOSES ALL S ON PAGE LOAD
+	********************************************************************************************************************/	
+	$('.accordionContent').hide();
+	$('.accordionContent:first').show();
+
+});
+
+//end accordian code
+</script>
+
+</body>
+</html>
